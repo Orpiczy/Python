@@ -17,12 +17,12 @@ class TinderBot:
         self.driver = webdriver.Chrome(ChromeDriverManager().install())
 
         # Łuki
-        self.email = 'lukasorpik@gmail.com'
-        self.password = 'FanucMazak327#'
+        self.email = ''
+        self.password = ''
 
         # Martyna
-        # self.email = 'markeliusz@o2.pl'
-        # self.password = 'dzownica1234'
+        # self.email = ''
+        # self.password = ''
         self.decision_if_match_found = 1
         # just skip 1
         # write message 2
