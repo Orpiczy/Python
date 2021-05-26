@@ -1,0 +1,58 @@
+list_random = random.sample(range(10001), 1000)
+
+list_sorted = list_random[:]
+list_sorted.sort()
+
+list_sorted_inv = list_random[:]
+list_sorted_inv.sort(reverse=True)
+
+nr_equal = random.randrange(1, 1001)
+list_equal = [nr_equal for i in range(1000)]
+
+for x in range(10):
+    bubble_time_1 = +timeit('bubblesort(list_random)', number=1, globals=globals())
+
+bubble_time_1 = bubble_time_1 / 10
+print('Bubblesort random list: {}'.format(bubble_time_1))
+
+for x in range(10):
+    quick_time_1 = +timeit('quicksort(list_random)', number=1, globals=globals())
+
+quick_time_1 = quick_time_1 / 10
+print('Quicksort random list: {}'.format(quick_time_1))
+
+for x in range(10):
+    bubble_time_2 = +timeit('bubblesort(list_sorted)', number=1, globals=globals())
+
+bubble_time_2 = bubble_time_2 / 10
+print('Bubblesort sorted list: {}'.format(bubble_time_2))
+
+for x in range(10):
+    quick_time_2 = +timeit('quicksort(list_sorted)', number=1, globals=globals())
+
+quick_time_2 = quick_time_2 / 10
+print('Quicksort sorted list: {}'.format(quick_time_2))
+
+for x in range(10):
+    bubble_time_3 = +timeit('bubblesort(list_sorted_inv)', number=1, globals=globals())
+
+bubble_time_3 = bubble_time_3 / 10
+print('Bubblesort sorted_inv list: {}'.format(bubble_time_3))
+
+for x in range(10):
+    quick_time_3 = +timeit('quicksort(list_sorted_inv)', number=1, globals=globals())
+
+quick_time_3 = quick_time_3 / 10
+print('Quicksort sorted_inv list: {}'.format(quick_time_3))
+
+for x in range(10):
+    bubble_time_4 = +timeit('bubblesort(list_equal)', number=1, globals=globals())
+
+bubble_time_4 = bubble_time_4 / 10
+print('Bubblesort equal list: {}'.format(bubble_time_4))
+
+for x in range(10):
+    quick_time_4 = + timeit('quicksort(list_equal)', number=1, globals=globals())
+
+quick_time_4 = quick_time_4 / 10
+print('Quicksort equal list: {}'.format(quick_time_4))

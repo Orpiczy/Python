@@ -1,0 +1,46 @@
+@startuml
+class Product{
+     -__init__ (name:str , price: float)
+     +name: str
+     +price: float 
+}
+
+class TooManyProductsFoundError
+{
+     -__init__(self, list_of_products:dict,  msg = None:str)
+}
+
+class ListServer{
+
+   +f(n: int)
+}
+
+class MapServer{
+   +f(n: int)
+}
+
+class Client{
+-__init__(self,server_as_dict=None:dict, server_as_list=None:list[int] )
++get_total_price(self, n_letters: Optional[int])
+}
+
+class ServerException
+
+
+class Exception
+
+abstract class Server{
+    +{abstract}f(n: int)
+}
+
+
+
+Server..>TooManyProductsFoundError:<<throws>>
+Exception <|-- ServerException
+ServerException <|-- TooManyProductsFoundError
+MapServer"1"*--"*"Product
+ListServer"1"*--"*"Product
+Client o--Server
+Server<|.. MapServer
+Server<|.. ListServer
+@enduml
